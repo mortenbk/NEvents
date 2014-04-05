@@ -1,4 +1,4 @@
-include ../includes/layouts
+include ../../includes/layouts
 block main-content
     .navbar.navbar-inverse.navbar-fixed-top
         .container
@@ -9,9 +9,8 @@ block main-content
                 ul.nav.navbar-nav
                     li
                         a(href="/") Home
-                //div(ng-include="'/partials/account/navbar-login'")
+                div(ng-include="'/partials/account/navbar-login'")
     section.content
         div(ng-view)
     footer.container.text-center
         p NEvents ltd
-    h1= mongoMessage

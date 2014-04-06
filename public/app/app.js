@@ -9,4 +9,9 @@ angular.module("app").config(function($locationProvider, $routeProvider) {
         controller: "neMainCtrl"
     });
 
+    $routeProvider.when("/calendar", {
+        templateUrl: "/partials/calendar/calendar",
+        controller: "neCalendarCtrl"
+    });
+
 });

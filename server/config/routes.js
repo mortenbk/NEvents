@@ -9,6 +9,8 @@ module.exports = function(app) {
         res.end();
     });
 
+    app.get("/calendar", auth.requiresLogin, function() {return {hello: "hello"}});
+
     app.get("/partials/*", function(req, res) {
         console.log("redirecting to " + "../../public/app/" + req.params);
         res.render("../../public/app/" + req.params);

@@ -11,7 +11,6 @@ module.exports = function() {
             User.findOne({
                 email: email
             }).exec(function(err, user) {
-                    console.log("passport user : " + user);
                     if(user && user.authenticate(password)) {
                         return done(null, user);
                     } else {

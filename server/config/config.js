@@ -6,10 +6,10 @@ module.exports = {
         db: "mongodb://localhost/NEvents",
         rootPath: rootPath,
         port: process.env.PORT || 3030
-    }/*,
+    },
     production: {
-        db: "mongodb://morphy:procell@ds027688.mongolab.com:27688/mean",
+        db: "mongodb://morphy:procell@ds047217.mongolab.com:47217/nevents",
         rootPath: rootPath,
         port: process.env.PORT || 80
-    }*/
+    }
 };

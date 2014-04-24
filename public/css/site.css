@@ -1,6 +1,3 @@
-body {
-    padding-top: 69px;
-}
 .navbar-header a.navbar-brand {
     margin-top: -15px;
     margin-bottom: -20px;
@@ -36,4 +33,34 @@ p {
 }
 .margin-left-med {
     margin-left: 10px;
+}
+.daySelected {
+    background-color: #DFE4FB;
+    border: 1px solid grey !important;
+}
+.fc-day-content:hover {
+    color:white
+}
+
+.fc-day-content:hover {
+    color:black
+}
+
+.fc-day {
+    position: relative;
+}
+
+.fc-past {
+    background-color: #F8EEB8;
+}
+
+#newEventLink {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.modal-dialog {
+    width: 750px;
 }

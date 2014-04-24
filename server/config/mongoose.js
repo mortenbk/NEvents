@@ -1,5 +1,6 @@
 var mongoose = require("mongoose"),
-    userModel = require("../models/user");
+    userModel = require("../models/User"),
+    eventModel = require("../models/Event");
 
 
 module.exports = function(config) {
@@ -12,4 +13,5 @@ module.exports = function(config) {
     });
 
     userModel.createDefaultUsers();
+    eventModel.createDefaultEvents();
 }

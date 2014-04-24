@@ -1,4 +1,5 @@
-var auth = require("./auth");
+var auth = require("./auth"),
+    events = require("../controllers/events");
 
 
 
@@ -9,11 +10,15 @@ module.exports = function(app) {
         res.end();
     });
 
-    app.get("/calendar", auth.requiresLogin, function() {return {hello: "hello"}});
+    app.get("/api/event", events.getEvents);
 
     app.get("/partials/*", function(req, res) {
-        console.log("redirecting to " + "../../public/app/" + req.params);
+        console.log("Loading partial at " + "../../public/app/" + req.params);
         res.render("../../public/app/" + req.params);
+    });
+
+    app.all("/api/*", function(req, res) {
+        res.send(404);
     });
 
     app.get("*", function(req, res) {

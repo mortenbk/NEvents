@@ -22,11 +22,11 @@ exports.authenticate = function(req, res, next) {
 }
 
 exports.requiresLogin = function(req, res, next) {
-        console.log("Requireslogin was run");
-        if (req.isAuthenticated()) {
-            next();
-        } else {
-            res.send(403);
+        if(!req.isAuthenticated()) {
+            console.log("403");
+            res.status(403);
             res.end();
+        } else {
+            next();
         }
 };

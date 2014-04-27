@@ -1,2 +1,3 @@
 .container
-    div(ng-dblclick="newEvent($event)").manageCalendar
+    div(ui-calendar="uiConfig", ng-model="eventSources").calendar
+    //div(ng-dblclick="newEvent($event)")

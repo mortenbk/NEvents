@@ -1,0 +1,71 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ui-calendar',
+1 verbose cli   '--save' ]
+2 info using npm@1.3.21
+3 info using node@v0.10.24
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json NEvents@0.0.0 No description
+6 warn package.json NEvents@0.0.0 No repository field.
+7 warn package.json NEvents@0.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'ui-calendar', null ]
+10 verbose cache add name=undefined spec="ui-calendar" args=["ui-calendar",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'ui-calendar',
+11 verbose parsed url   path: 'ui-calendar',
+11 verbose parsed url   href: 'ui-calendar' }
+12 silly lockFile 65689ff3-ui-calendar ui-calendar
+13 verbose lock ui-calendar C:\Users\morten\AppData\Roaming\npm-cache\65689ff3-ui-calendar.lock
+14 silly lockFile 65689ff3-ui-calendar ui-calendar
+15 silly lockFile 65689ff3-ui-calendar ui-calendar
+16 verbose addNamed [ 'ui-calendar', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 99b37495-ui-calendar ui-calendar@
+19 verbose lock ui-calendar@ C:\Users\morten\AppData\Roaming\npm-cache\99b37495-ui-calendar.lock
+20 silly addNameRange { name: 'ui-calendar', range: '*', hasData: false }
+21 verbose url raw ui-calendar
+22 verbose url resolving [ 'https://registry.npmjs.org/', './ui-calendar' ]
+23 verbose url resolved https://registry.npmjs.org/ui-calendar
+24 info trying registry request attempt 1 at 04:08:46
+25 http GET https://registry.npmjs.org/ui-calendar
+26 http 404 https://registry.npmjs.org/ui-calendar
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Thu, 24 Apr 2014 02:08:50 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '52',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-v41-ASH, cache-am71-AMS',
+27 silly registry.get     'x-cache': 'MISS, MISS',
+27 silly registry.get     'x-cache-hits': '0, 0',
+27 silly registry.get     'x-timer': 'S1398305330.700159311,VS0,VS50,VE155,VE197',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile 99b37495-ui-calendar ui-calendar@
+29 silly lockFile 99b37495-ui-calendar ui-calendar@
+30 error 404 'ui-calendar' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Windows_NT 6.2.9200
+32 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ui-calendar" "--save"
+33 error cwd C:\Users\morten\Node Projects\NEvents
+34 error node -v v0.10.24
+35 error npm -v 1.3.21
+36 error code E404
+37 verbose exit [ 1, true ]

@@ -2,8 +2,8 @@ div.modal-header
     h2 Ny Begivenhed
 div.modal-body
     div.input-group
-        span Navn
-        input(ng-model="event.name")
+        span Title
+        input(ng-model="event.title", ng-required)
     br
     div.input-group.col-lg-12
         div.col-lg-5 Start Date

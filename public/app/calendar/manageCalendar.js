@@ -2,8 +2,8 @@ angular.module("app").directive("manageCalendar", function($compile, neEvent) {
 
 
     var cal = function (scope, element, attrs) {
-        $(element).fullCalendar({
-            events: "api/event",
+        var uiConfig = {
+            calendar: {
             //weekends: false,
             weekNumbers: true,
             timeFormat: "H(:mm)",
@@ -12,6 +12,12 @@ angular.module("app").directive("manageCalendar", function($compile, neEvent) {
             monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Okt", "Nov", "Dec"],
             dayNames: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"],
             dayNamesShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+            editable: true,
+            header:{
+                left: 'title',
+                center: '',
+                right: 'today prev,next'
+            },
             dayClick: function (date, allDay, jsEvent, view) {
 
                 if (allDay) {
@@ -27,8 +33,17 @@ angular.module("app").directive("manageCalendar", function($compile, neEvent) {
                     $(this).addClass("daySelected").append($compile("<a id='newEventLink' ng-click='newEvent()'>New Event</a>")(scope));
                     scope.date = date;
                 }
-            }
-        });
+            }}
+            /*,
+            eventClick: $scope.alertOnEventClick,
+            eventDrop: $scope.alertOnDrop,
+            eventResize: $scope.alertOnResize*/
+        };
+        var eventSources = [{url: "/api/event"}];
+
+        angular.extend(scope.uiConfig, uiConfig);
+        angular.extend(scope.eventSources, eventSources);
+
     };
 
 

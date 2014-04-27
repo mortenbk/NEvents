@@ -10,7 +10,8 @@ module.exports = function(app) {
         res.end();
     });
 
-    app.get("/api/event", events.getEvents);
+    app.get("/api/events", /*auth.requiresLogin, */events.getEvents);
+    app.put("/api/events", events.updateEvent);
 
     app.get("/partials/*", function(req, res) {
         console.log("Loading partial at " + "../../public/app/" + req.params);

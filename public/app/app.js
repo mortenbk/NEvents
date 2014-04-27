@@ -1,4 +1,4 @@
-angular.module("app", ["ngResource", "ngRoute", "ui.bootstrap"]);
+angular.module("app", ["ngResource", "ngRoute", "ui.bootstrap", 'ui.calendar']);
 
 angular.module("app").config(function($locationProvider, $routeProvider) {
 

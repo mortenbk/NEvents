@@ -17,7 +17,7 @@ angular.module("app").controller("neLocationCtrl", function($scope, neLocation, 
                     toastr.success("Successfully changed " + changedLocation.title);
                 }
             }, function (location) {
-                //Delete event
+                //Delete location
                 location.$delete({_id: location._id});
                 //Delete has not changed data on client,
                 // need to iterate through data to reflect data on the server.
@@ -40,6 +40,7 @@ angular.module("app").controller("neLocationCtrl", function($scope, neLocation, 
                 newLocation = new neLocation(newLocation);
                 newLocation.$save(newLocation);
                 $scope.locations.push(newLocation);
+                toastr.success("Successfully added " + newLocation.title);
             }
         });
 

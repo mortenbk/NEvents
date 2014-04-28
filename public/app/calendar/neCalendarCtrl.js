@@ -17,14 +17,10 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
         });
         modalInstance.result.then(function(newEvent) {
             if(newEvent) {
-                console.log("NewEvent 1 : " + angular.toJson(newEvent));
                 newEvent = new neEvent(newEvent);
-                console.log("NewEvent 2 : " + angular.toJson(newEvent));
                 newEvent.$save(newEvent);
-
-                console.log("NewEvent 3 : " + angular.toJson(newEvent));
                 $scope.events.push(newEvent);
-                console.log("Added : " + angular.toJson(newEvent));
+                toastr.success("Successfully added " + newEvent.title);
             }
         });
 

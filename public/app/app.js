@@ -19,4 +19,9 @@ angular.module("app").config(function($locationProvider, $routeProvider) {
         controller: "neLocationCtrl"
     });
 
+    $routeProvider.when("/food", {
+        templateUrl: "/partials/food/food",
+        controller: "neFoodCtrl"
+    });
+
 });

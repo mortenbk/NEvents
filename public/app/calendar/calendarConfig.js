@@ -5,13 +5,13 @@ angular.module("app").service("calendarConfig", function ($compile) {
             return {
             //weekends: false,
             weekNumbers: true,
-            timeFormat: "H(:mm)",
             monthNames: ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli",
                 "August", "September", "Oktober", "November", "December"],
             monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Okt", "Nov", "Dec"],
             dayNames: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"],
             dayNamesShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
             editable: true,
+            ignoreTimezone: false,
             dayClick: function (date, allDay, jsEvent, view) {
 
                 if (allDay) {

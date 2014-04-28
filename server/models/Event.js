@@ -2,8 +2,8 @@ var mongoose = require("mongoose");
 
 var eventSchema = {
     title: {type: String},
-    start: {type: String},
-    end: {type: String}
+    start: {type: Date},
+    end: {type: Date}
 }
 
 var Event = mongoose.model("Event", eventSchema);

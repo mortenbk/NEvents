@@ -1,0 +1,18 @@
+div.modal-header
+    h2 Edit Location
+div.modal-body
+    div.input-group
+        span Title
+        input(ng-model="location.title")
+    div.input-group
+        span Description
+        input(ng-model="location.description")
+    div.checkbox
+        label Is it a room?
+            input(type="checkbox", ng-model="location.isRoom")
+            div Yes
+
+div.modal-footer
+    button(ng-click="cancel()").btn-default.pull-right Cancel
+    button(ng-click="editLocation(location)").btn-default.pull-right Save
+    button(ng-click="deleteLocation(location)").btn-default.btn-danger.pull-left Delete

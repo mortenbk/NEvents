@@ -13,10 +13,11 @@ angular.module("app").controller("neEditEventCtrl", function ($modalInstance, $s
 
     $scope.editEvent = function(event) {
         $modalInstance.close(event);
-        toastr.success("Saving " + event.title + " : " + event.start);
+    }
+    $scope.deleteEvent = function(event) {
+        $modalInstance.dismiss(event);
     }
     $scope.cancel = function() {
-        toastr.error("Exiting modal !");
         $modalInstance.close();
     }
     });

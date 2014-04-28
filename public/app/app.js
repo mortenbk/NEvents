@@ -14,4 +14,9 @@ angular.module("app").config(function($locationProvider, $routeProvider) {
         controller: "neCalendarCtrl"
     });
 
+    $routeProvider.when("/location", {
+        templateUrl: "/partials/location/location",
+        controller: "neLocationCtrl"
+    });
+
 });

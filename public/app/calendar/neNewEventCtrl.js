@@ -1,7 +1,9 @@
 angular.module("app").controller("neNewEventCtrl", function ($modalInstance, $scope, date) {
+    console.log("neNewEventctrl recieved this date " + date);
         $scope.event = {start: date, end: date};
+    console.log("neNewEventctrls scope.event.start has this date  " + $scope.event.start);
         $scope.datepicker =
-        {format: "dd-MMMM-yyyy",
+        {/*format: "dd-MMMM-yyyy",*/
             ismeridian: false
         }
 
@@ -12,6 +14,7 @@ angular.module("app").controller("neNewEventCtrl", function ($modalInstance, $sc
         }
 
         $scope.addEvent = function(event) {
+            console.log("neNewEventCtrl is returning this date " + event.start);
             $modalInstance.close(event);
             toastr.success("Saving " + event.title + " : " + event.start);
         }

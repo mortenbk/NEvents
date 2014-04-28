@@ -42,6 +42,15 @@ p {
 .eventSelected {
     border: 1px solid black !important;
 }
+.locationRow {
+    cursor: pointer;
+}
+.locationRow:focus {
+    background-color: blue;
+}
+.locationRow:active {
+    background-color: green;
+}
 
 .fc-day-content:hover {
     color:white

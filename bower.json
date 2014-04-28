@@ -18,6 +18,8 @@
     "ui-bootstrap": "~0.10.0",
     "angular-bootstrap": "~0.10.0",
     "angular-ui-calendar": "~0.8.0",
-    "jquery-ui": "~1.10.4"
+    "jquery-ui": "~1.10.4",
+    "moment": "~2.6.0",
+    "underscore": "~1.6.0"
   }
 }

@@ -5,12 +5,10 @@
             th Description
             th Price
             th Currency
-            th Quantity
         tbody
             tr(ng-repeat="food in foods", ng-click="editFood(food)").foodRow
                 td {{food.title}}
                 td {{food.description}}
-                td {{food.getPrice()}}
+                td {{food.priceString = getPrice(food)}}
                 td {{food.currency}}
-                td {{food.quantity}}
     button(ng-click="newFood()").btn-default.pull-right Add Food

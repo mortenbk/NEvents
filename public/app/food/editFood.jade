@@ -1,0 +1,20 @@
+div.modal-header
+    h2 Edit Food
+div.modal-body
+    div.input-group
+        span Title
+        input(ng-model="food.title")
+    div.input-group
+        span Description
+        input(ng-model="food.description")
+    div.input-group
+        span Price
+        input(ng-model="food.unBoundPriceString")
+    div.input-group
+        span Currency
+        label  {{food.currency}}
+
+div.modal-footer
+    button(ng-click="cancel()").btn-default.pull-right Cancel
+    button(ng-click="editFood(food)").btn-default.pull-right Save
+    button(ng-click="deleteFood(food)").btn-default.btn-danger.pull-left Delete

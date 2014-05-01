@@ -45,11 +45,8 @@ p {
 .locationRow {
     cursor: pointer;
 }
-.locationRow:focus {
-    background-color: blue;
-}
-.locationRow:active {
-    background-color: green;
+.foodRow {
+    cursor: pointer;
 }
 
 .fc-day-content:hover {

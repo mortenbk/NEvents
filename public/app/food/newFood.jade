@@ -1,0 +1,19 @@
+div.modal-header
+    h2 New Food
+div.modal-body
+    div.input-group
+        span Title
+        input(ng-model="food.title")
+    div.input-group
+        span Description
+        input(ng-model="food.description")
+    div.input-group
+        span Price
+        input(ng-model="food.priceString")
+    div.input-group
+        span Currency
+        input(ng-model="food.currency")
+
+div.modal-footer
+    button(ng-click="cancel()").btn-default.pull-right Cancel
+    button(ng-click="addFood(food)").btn-default.pull-right Save

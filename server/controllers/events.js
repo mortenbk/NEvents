@@ -1,9 +1,9 @@
 var mongoose = require("mongoose"),
-    Event = mongoose.model("Event");
+    Event = mongoose.model("Event"),
+    Location = mongoose.model("Location");
 
 exports.getEvents = function(req, res) {
-    Event.find({}).exec(function(err, collection) {
-        //console.log("Sending " + collection);
+    Event.find({}).populate("location").exec(function(err, collection) {
         res.send(collection);
         console.log("getEvents: " + collection);
     });
@@ -11,6 +11,14 @@ exports.getEvents = function(req, res) {
 
 exports.updateEvent = function(req, res) {
     var updatedEvent = req.body;
+
+    if(updatedEvent.location) {
+        Location.find({_id: updatedEvent.location._id}).exec(function(err, collection) {
+            if(!err) {
+                updatedEvent.location = {_id: collection._id};
+            }
+        });
+    }
     var updatedEventId = req.body._id;
     delete updatedEvent._id;
     Event.findOneAndUpdate({_id: updatedEventId}, updatedEvent, function(err, event) {

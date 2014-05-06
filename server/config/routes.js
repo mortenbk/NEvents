@@ -1,7 +1,8 @@
 var auth = require("./auth"),
     events = require("../controllers/events"),
     locations = require("../controllers/locations"),
-    foods = require("../controllers/foods");
+    foods = require("../controllers/foods"),
+    orders = require("../controllers/orders");
 
 
 
@@ -31,6 +32,13 @@ module.exports = function(app) {
     app.put("/api/foods", foods.updateFood);
     app.post("/api/foods", foods.createFood);
     app.delete("/api/foods", foods.deleteFood);
+
+    //Order
+    app.get("/api/orders", orders.getOrders);
+    //app.get("api/orders/:id", orders.getOrderByEventId);
+    app.put("/api/orders", orders.updateOrder);
+    app.post("/api/orders", orders.createOrder);
+    app.delete("/api/orders", orders.deleteOrder);
 
     //Partial routing
     app.get("/partials/*", function(req, res) {

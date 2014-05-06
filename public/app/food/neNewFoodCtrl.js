@@ -3,8 +3,8 @@ angular.module("app").controller("neNewFoodCtrl", function($modalInstance, $scop
 
         $modalInstance.close(food);
         toastr.success("Saving " + food.title);
-    }
+    };
     $scope.cancel = function() {
         $modalInstance.close();
-    }
+    };
 });

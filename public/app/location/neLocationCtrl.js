@@ -28,7 +28,7 @@ angular.module("app").controller("neLocationCtrl", function($scope, neLocation, 
                     }
                 }
             });
-    }
+    };
 
     $scope.newLocation = function () {
         var modalInstance = $modal.open({

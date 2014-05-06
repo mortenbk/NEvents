@@ -5,8 +5,8 @@ angular.module("app").controller("neNewLocationCtrl", function($modalInstance, $
 
         $modalInstance.close(location);
         toastr.success("Saving " + location.title);
-    }
+    };
     $scope.cancel = function() {
         $modalInstance.close();
-    }
+    };
 });

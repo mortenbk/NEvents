@@ -16,7 +16,7 @@ var appendCurrencyMarker = function(foodObject, price) {
 
 var removeCurrencyMarkers = function(priceString) {
     return priceString.replace(/[^0-9.,]/g, "");
-}
+};
 
 angular.module("app").service("foodPrice", function() {
 

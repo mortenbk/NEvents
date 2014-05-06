@@ -2,17 +2,25 @@ div.modal-header
     h2 Edit Event
 div.modal-body
     div.input-group
-        span Title
-        input(ng-model="event.title")
+        div Title
+        input(ng-model="event.title", ng-required)
+    br
+    dv.input-group
+        div Description
+        textarea(ng-model="event.description", cols="50", rows="4")
     br
     div.input-group.col-lg-12
-        div.col-lg-5 Start Date
+        div.col-lg-5(style="padding-left: 0px")
+            div Start Date
             input(ng-model="event.start", datepicker-popup="{{datepicker.format}}", ng-change="changeEndDate(event.start)")
             timepicker(ng-model="event.start", ng-change="changeEndDate(event.start)", show-meridian="{{datepicker.ismeridian}}")
         div.col-lg-2
-        div.col-lg-5 End Date
+        div.col-lg-5
+            div End Date
             input(ng-model="event.end", datepicker-popup="{{datepicker.format}}", min="event.start", ng-valid)
             timepicker(ng-model="event.end", show-meridian="{{datepicker.ismeridian}}")
+    br
+    select(ng-model="event.location._id", ng-options="location._id as location.title for location in locations")
 div.modal-footer
     button(ng-click="cancel()").btn-default.pull-right Cancel
     button(ng-click="editEvent(event)").btn-default.pull-right Save

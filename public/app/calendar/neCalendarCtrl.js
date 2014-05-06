@@ -1,9 +1,11 @@
-angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $compile, neEvent, calendarConfig) {
+angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $compile, neEvent, neLocation, calendarConfig) {
 
     $scope.events = neEvent.query();
     $scope.eventSources = [$scope.events];
 
     $scope.uiConfig = calendarConfig.config($scope);
+
+    var locations = neLocation.query();
 
     $scope.newEvent = function (date) {
         console.log("Sending this date from controller " + date);
@@ -24,7 +26,7 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
             }
         });
 
-    }
+    };
 
     $scope.editEvent = function (event) {
         var modalInstance = $modal.open({
@@ -33,6 +35,9 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
             resolve: {
                 event: function () {
                     return event;
+                },
+                locations: function() {
+                    return locations;
                 }}
         });
         modalInstance.result.then(function(changedEvent) {

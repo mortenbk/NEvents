@@ -1,9 +1,11 @@
-angular.module("app").controller("neEditEventCtrl", function ($modalInstance, $scope, event) {
+angular.module("app").controller("neEditEventCtrl", function ($modalInstance, $scope, event, locations) {
     $scope.event = event;
+    $scope.event.location = {};
+    $scope.locations = locations;
     $scope.datepicker =
     {format: "dd-MMMM-yyyy",
         ismeridian: false
-    }
+    };
 
     /*$scope.changeEndDate = function(startDate) {
         if(startDate > $scope.event.end) {
@@ -13,11 +15,11 @@ angular.module("app").controller("neEditEventCtrl", function ($modalInstance, $s
 
     $scope.editEvent = function(event) {
         $modalInstance.close(event);
-    }
+    };
     $scope.deleteEvent = function(event) {
         $modalInstance.dismiss(event);
-    }
+    };
     $scope.cancel = function() {
         $modalInstance.close();
-    }
-    });
+    };
+});

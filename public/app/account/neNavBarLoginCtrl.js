@@ -8,12 +8,12 @@ angular.module("app").controller("neNavBarLoginCtrl", function($scope, neAuth, n
                 toastr.error("Failed to login");
             }
         });
-    }
+    };
 
     $scope.signout = function() {
         neAuth.signout().then(function() {
             toastr.error("Logged out. .. WHYYY");
             $location.path("/");
         });
-    }
+    };
 });

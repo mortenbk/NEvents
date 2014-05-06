@@ -4,10 +4,10 @@ angular.module("app").controller("neFoodCtrl", function($scope, $modal, neFood, 
     $scope.getPrice = function(foodObject) {
         return foodPrice.getPrice(foodObject);
 
-    }
+    };
     $scope.setPrice = function(foodObject) {
         foodPrice.setPrice(foodObject);
-    }
+    };
 
     $scope.editFood = function(food) {
 
@@ -41,7 +41,7 @@ angular.module("app").controller("neFoodCtrl", function($scope, $modal, neFood, 
                 }
             }
         });
-    }
+    };
 
     $scope.newFood = function () {
         var modalInstance = $modal.open({

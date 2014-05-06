@@ -1,4 +1,4 @@
-angular.module("app").service("calendarConfig", function ($compile) {
+angular.module("app").service("calendarConfig", function () {
 
     return {
         config: function(scope){

@@ -36,7 +36,7 @@ exports.createFood = function (req, res) {
                 return res.send({reason: err.toString()});
             }
             res.send(food);
-            console.log("Successfully created location : " + food.title);
+            console.log("Successfully created food : " + food.title);
         });
     }
 };

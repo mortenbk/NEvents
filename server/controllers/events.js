@@ -21,7 +21,7 @@ exports.updateEvent = function(req, res) {
     }
     var updatedEventId = req.body._id;
     delete updatedEvent._id;
-    Event.findOneAndUpdate({_id: updatedEventId}, updatedEvent, function(err, event) {
+    Event.findOneAndUpdate({_id: updatedEventId}, updatedEvent).populate("location").exec( function(err, event) {
         if(!event) {
             res.status(404);
             res.end();
@@ -38,14 +38,21 @@ exports.updateEvent = function(req, res) {
 
 exports.createEvent = function (req, res) {
     var newEvent = req.body;
-    console.log("Server recieved this date " + newEvent.start);
     if (newEvent && newEvent.title && newEvent.start) {
         Event.create(newEvent, function (err, event) {
             if (err) {
                 res.status(400);
                 return res.send({reason: err.toString()});
             }
-            res.send(event);
+            Event.populate(event, "location", function(e, eventloc) {
+                if(!e) {
+                    res.send(eventloc);
+                } else {
+                    res.status(400);
+                    return res.send({reason: e.toString()});
+                }
+
+            });
             console.log("Successfully created event : " + event.title);
         });
     }

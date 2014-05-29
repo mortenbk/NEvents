@@ -20,7 +20,7 @@ div.modal-body
             input(ng-model="event.end", datepicker-popup="{{datepicker.format}}", min="event.start", ng-valid)
             timepicker(ng-model="event.end", show-meridian="{{datepicker.ismeridian}}")
     br
-    select(ng-model="event.location", ng-options="locations")
+    select(ng-model="event.location._id", ng-options="location._id as location.title for location in locations")
 
 
 div.modal-footer

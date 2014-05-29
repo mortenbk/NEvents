@@ -1,7 +1,10 @@
-angular.module("app").controller("neNewEventCtrl", function ($modalInstance, $scope, date) {
-    console.log("neNewEventctrl recieved this date " + date);
+angular.module("app").controller("neNewEventCtrl", function ($modalInstance, $scope, date, locations) {
         $scope.event = {start: date, end: date};
-    console.log("neNewEventctrls scope.event.start has this date  " + $scope.event.start);
+        if(!$scope.event.location) {
+            $scope.event.location = {};
+        }
+        $scope.locations = locations;
+
         $scope.datepicker =
         {/*format: "dd-MMMM-yyyy",*/
             ismeridian: false

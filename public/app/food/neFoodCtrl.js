@@ -30,14 +30,16 @@ angular.module("app").controller("neFoodCtrl", function($scope, $modal, neFood, 
                 toastr.success("Successfully changed " + changedFood.title);
             }
         }, function (food) {
-            //Delete food
-            food.$delete({_id: food._id});
-            //Delete has not changed data on client,
-            // need to iterate through data to reflect data on the server.
-            for(var i = 0; i < $scope.foods.length; i++) {
-                if($scope.foods[i]._id === food._id) {
-                    $scope.foods.splice(i, 1);
-                    toastr.error("Successfully deleted food");
+            if(food != "backdrop click") {
+                //Delete food
+                food.$delete({_id: food._id});
+                //Delete has not changed data on client,
+                // need to iterate through data to reflect data on the server.
+                for(var i = 0; i < $scope.foods.length; i++) {
+                    if($scope.foods[i]._id === food._id) {
+                        $scope.foods.splice(i, 1);
+                        toastr.error("Successfully deleted food");
+                    }
                 }
             }
         });

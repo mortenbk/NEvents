@@ -1,6 +1,8 @@
 angular.module("app").controller("neEditEventCtrl", function ($modalInstance, $scope, event, locations) {
     $scope.event = event;
-    $scope.event.location = {};
+    if(!event.location) {
+        $scope.event.location = {};
+    }
     $scope.locations = locations;
     $scope.datepicker =
     {format: "dd-MMMM-yyyy",

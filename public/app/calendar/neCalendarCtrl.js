@@ -15,10 +15,14 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
             resolve: {
             date: function () {
                 return date;
-             }}
+             },
+            locations: function() {
+                return locations;
+            }}
         });
         modalInstance.result.then(function(newEvent) {
             if(newEvent) {
+                newEvent.location = newEvent.location._id;
                 newEvent = new neEvent(newEvent);
                 newEvent.$save(newEvent);
                 $scope.events.push(newEvent);
@@ -42,10 +46,12 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
         });
         modalInstance.result.then(function(changedEvent) {
             if(changedEvent) {
+                changedEvent.location = changedEvent.location._id;
                 changedEvent.$update({_id: event._id});
                 toastr.success("Successfully changed " + changedEvent.title);
             }
         }, function (event) {
+            if(event != "backdrop click") {
             //Delete event
             event.$delete({_id: event._id});
             //Delete has not changed data on client,
@@ -55,6 +61,7 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
                     $scope.events.splice(i, 1);
                     toastr.error("Successfully deleted event");
                 }
+            }
             }
 
         });

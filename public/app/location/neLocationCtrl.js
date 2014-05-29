@@ -17,14 +17,16 @@ angular.module("app").controller("neLocationCtrl", function($scope, neLocation, 
                     toastr.success("Successfully changed " + changedLocation.title);
                 }
             }, function (location) {
-                //Delete location
-                location.$delete({_id: location._id});
-                //Delete has not changed data on client,
-                // need to iterate through data to reflect data on the server.
-                for(var i = 0; i < $scope.locations.length; i++) {
-                    if($scope.locations[i]._id === location._id) {
-                        $scope.locations.splice(i, 1);
-                        toastr.error("Successfully deleted location");
+                if(location != "backdrop click") {
+                    //Delete location
+                    location.$delete({_id: location._id});
+                    //Delete has not changed data on client,
+                    // need to iterate through data to reflect data on the server.
+                    for(var i = 0; i < $scope.locations.length; i++) {
+                        if($scope.locations[i]._id === location._id) {
+                            $scope.locations.splice(i, 1);
+                            toastr.error("Successfully deleted location");
+                        }
                     }
                 }
             });

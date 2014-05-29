@@ -49,6 +49,9 @@ angular.module("app").service("calendarConfig", function () {
             if (!confirm("Are you sure about this change?")) {
                 revertFunc();
             } else {
+                if (event.location) {
+                    event.location = event.location._id;
+                }
                 event.$update({_id: event._id});
                 console.log("Sending : " + angular.toJson(event, true));
             }

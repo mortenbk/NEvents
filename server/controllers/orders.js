@@ -2,9 +2,14 @@ var mongoose = require("mongoose"),
     Order = mongoose.model("Order");
 
 exports.getOrders = function(req, res) {
-    Order.find({}).exec(function(err, collection) {
-        res.send(collection);
-        console.log("getOrder: " + collection);
+    Order.find({}).populate("foods").exec(function(err, collection) {
+        if(err) {
+            res.status(400);
+            return res.send({reason: err.toString()});
+        } else {
+            res.send(collection);
+            console.log("getOrder: " + collection);
+        }
     });
 }
 

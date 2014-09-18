@@ -21,6 +21,21 @@ div.modal-body
             timepicker(ng-model="event.end", show-meridian="{{datepicker.ismeridian}}")
     br
     select(ng-model="event.location._id", ng-options="location._id as location.title for location in locations")
+    br
+    div.panel.panel-primary
+        div.panel-heading Orders
+            span.glyphicon.glyphicon-plus.pull-right(ng-click="addOrder()")
+        div.panel.panel-default(ng-repeat="order in event.orders")
+            div.panel-heading
+                input.panel-title(ng-model="order.title")
+                timepicker.pull-right(ng-model="order.deliveryTime", show-meridian="{{datepicker.ismeridian}}")
+            div.panel-body {{order.deliveryTime.toString()}}
+                div.panel.panel-success
+                    div.panel-heading Foods
+                    div.panel-body
+                        span.glyphicon.glyphicon-plus.pull-right(ng-click="addFood(order)")
+                        div(ng-repeat="food in order.foods track by food._id")
+                            select(ng-model="order.foods[$index]", ng-options="foodoption.title for foodoption in foods | filter:addedFoodFilter(order, $index)")
 
 
 div.modal-footer

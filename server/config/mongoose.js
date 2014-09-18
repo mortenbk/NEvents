@@ -1,9 +1,9 @@
 var mongoose = require("mongoose"),
     userModel = require("../models/User"),
     foodModel = require("../models/Food"),
-    orderModel = require("../models/Order"),
     locationModel = require("../models/Location"),
-    eventModel = require("../models/Event");
+    eventModel = require("../models/Event"),
+    orderModel = require("../models/Order");
 
 
 
@@ -19,7 +19,7 @@ module.exports = function(config) {
 
     userModel.createDefaultUsers();
     foodModel.createDefaultFoods();
-    orderModel.createDefaultOrders();
+    //orderModel.createDefaultOrders();
     locationModel.createDefaultLocations();
     eventModel.createDefaultEvents();
 

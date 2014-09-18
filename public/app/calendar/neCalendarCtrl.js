@@ -1,4 +1,9 @@
-angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $compile, neEvent, neLocation, calendarConfig) {
+/**
+ * This is the neNewEventCtrl, this controller controls the whole process of creating an event.
+ *     It delegates each subpart to other controllers through modals, and they return the data to this controller.
+ *     Which then processes the return data and contacts the backend to reflect the changes made by the user(if needed).
+ */
+angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $compile, neEvent, neLocation, calendarConfig, neFood, neOrder) {
 
     $scope.events = neEvent.query();
     $scope.eventSources = [$scope.events];
@@ -6,9 +11,9 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
     $scope.uiConfig = calendarConfig.config($scope);
 
     var locations = neLocation.query();
+    var foods = neFood.query();
 
     $scope.newEvent = function (date) {
-        console.log("Sending this date from controller " + date);
         var modalInstance = $modal.open({
             templateUrl: '/partials/calendar/newEvent',
             controller: "neNewEventCtrl",
@@ -18,11 +23,20 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
              },
             locations: function() {
                 return locations;
+            },
+            foods: function() {
+                return foods;
             }}
         });
         modalInstance.result.then(function(newEvent) {
             if(newEvent) {
                 newEvent.location = newEvent.location._id;
+                newEvent.orders.forEach(function(currentOrder) {
+                    for(var i = 0; i < currentOrder.foods.length; i++) {
+                        currentOrder.foods[i] =  currentOrder.foods[i]._id;
+                    }
+                });
+
                 newEvent = new neEvent(newEvent);
                 newEvent.$save(newEvent);
                 $scope.events.push(newEvent);
@@ -42,11 +56,22 @@ angular.module("app").controller("neCalendarCtrl", function($scope, $modal, $com
                 },
                 locations: function() {
                     return locations;
+                },
+                foods: function() {
+                    return foods;
                 }}
         });
         modalInstance.result.then(function(changedEvent) {
             if(changedEvent) {
+                //Source property needs to be deleted to prevent circular reference error
+                delete changedEvent.source;
                 changedEvent.location = changedEvent.location._id;
+
+                changedEvent.orders.forEach(function(currentOrder) {
+                    for(var i = 0; i < currentOrder.foods.length; i++) {
+                        currentOrder.foods[i] =  currentOrder.foods[i]._id;
+                    }
+                });
                 changedEvent.$update({_id: event._id});
                 toastr.success("Successfully changed " + changedEvent.title);
             }

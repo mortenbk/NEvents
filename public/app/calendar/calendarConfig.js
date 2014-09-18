@@ -52,6 +52,7 @@ angular.module("app").service("calendarConfig", function () {
                 if (event.location) {
                     event.location = event.location._id;
                 }
+                delete event.source;
                 event.$update({_id: event._id});
                 console.log("Sending : " + angular.toJson(event, true));
             }
